@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> update1
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -80,6 +85,10 @@ main {
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+<<<<<<< HEAD
+=======
+    padding-bottom: 3rem; /* Added padding for footer */
+>>>>>>> update1
 }
 
 section {
@@ -101,9 +110,14 @@ footer {
     color: #fff;
     text-align: center;
     padding: 1rem;
+<<<<<<< HEAD
     position: fixed;
     bottom: 0;
     width: 100%;
+=======
+    width: 100%;
+    position: relative; /* Changed from fixed */
+>>>>>>> update1
 }
 
 footer p {
@@ -136,3 +150,7 @@ footer p {
         font-size: 1rem;
     }
 }
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
+>>>>>>> update1
