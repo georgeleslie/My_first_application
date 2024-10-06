@@ -36,18 +36,119 @@ nav a:hover {
     text-decoration: underline;
 }
 
+.nav-menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(45deg, #007BFF, #00D4FF);
+    padding: 1rem 0;
+}
+
+.nav-menu li {
+    position: relative;
+    margin: 0 20px;
+}
+
+.nav-menu li a {
+    text-decoration: none;
+    color: rgb(211, 25, 25);
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+    border-radius: 5px;
+}
+
+.nav-menu li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #FFF;
+}
+
+/* Dropdown Menu Styles */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border-radius: 8px;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    z-index: 1;
+}
+
+.dropdown-content li {
+    padding: 12px 16px;
+    list-style: none;
+}
+
+.dropdown-content li a {
+    padding: 10px;
+    color: #007BFF;
+    text-decoration: none;
+    display: block;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.dropdown-content li a:hover {
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Smooth Dropdown Transition */
+.dropdown-content {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Responsive Navigation for Smaller Screens */
+@media (max-width: 768px) {
+    .nav-menu {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .nav-menu li {
+        margin-bottom: 10px;
+    }
+}
+
 /* Hero Section */
 .hero {
-    background-image: url('https://via.placeholder.com/1200x400');
+    background-image: url('Images/hero_resized.webp'); /* Primary WebP image */
     background-size: cover;
     background-position: center;
-    height: 400px;
+    background-repeat: no-repeat;
+    height: 80vh; /* Adjust this height to fit your design */
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     color: white;
     text-align: center;
     position: relative;
+    z-index: 1;
+}
+
+/* Fallback to JPEG if WebP isn't supported */
+@supports not (background-image: url("Images/hero_resized.webp")) {
+    .hero {
+        background-image: url('images/hero_resized.jpeg');
+    }
 }
 
 .hero h2 {
@@ -101,7 +202,7 @@ footer {
     color: #fff;
     text-align: center;
     padding: 1rem;
-    position: fixed;
+    position: relative;
     bottom: 0;
     width: 100%;
 }
