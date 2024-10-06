@@ -1,9 +1,8 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 =======
 <<<<<<< Updated upstream
 =======
->>>>>>> update1
+
 body {
     font-family: Arial, sans-serif;
 =======
@@ -258,12 +257,11 @@ main {
     padding: 1rem;
     background-color: var(--white-color);
     border-radius: 5px;
-<<<<<<< HEAD
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-<<<<<<< HEAD
+
 =======
     padding-bottom: 3rem; /* Added padding for footer */
->>>>>>> update1
+
 =======
     box-shadow: var(--box-shadow);
 >>>>>>> update3
@@ -294,9 +292,9 @@ footer {
     background-color: var(--gray-color);
     color: var(--white-color);
     text-align: center;
-<<<<<<< HEAD
+
     padding: 1rem;
-<<<<<<< HEAD
+
     position: fixed;
     bottom: 0;
 =======
@@ -440,9 +438,7 @@ footer {
         margin-top: 10px;
     }
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+
 >>>>>>> Stashed changes
 >>>>>>> update1
 =======
