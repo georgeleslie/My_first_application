@@ -44,7 +44,7 @@ header {
 
 /* Navigation Menu */
 .nav-menu {
-    list-style: none;
+    list-style: none; /* Remove bullet points from main menu */
     display: flex;
     justify-content: space-between;
     gap: 30px;
@@ -84,8 +84,11 @@ header {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
+    list-style: none; /* Remove bullet points from dropdowns */
+    padding: 10px 0;
 }
 
+/* Dropdown Hover */
 .dropdown:hover .dropdown-content {
     display: block;
     opacity: 1;
@@ -96,6 +99,7 @@ header {
     padding: 10px 20px;
     color: var(--primary-color);
     display: block;
+    transition: background-color 0.3s ease;
 }
 
 .dropdown-content li a:hover {
@@ -162,17 +166,22 @@ header {
 }
 
 /* Mobile Specific Styles */
-@media (max-width: 768px) {
+@media (max-width: 2000px) {
+    /* Keep logo and hamburger menu side by side */
     .header-container {
-        flex-direction: column;
+        flex-direction: row; /* This ensures side-by-side layout */
+        justify-content: space-between; /* Space between logo and menu */
+        align-items: center; /* Vertically center both elements */
         padding: 10px;
     }
 
     .logo {
         max-width: 100px;
         margin-left: 0;
+        order: 1;
     }
 
+    /* Hide the normal navigation in mobile view */
     .nav-menu {
         display: none;
         flex-direction: column;
@@ -183,16 +192,30 @@ header {
         display: flex;
     }
 
+    /* Center menu items in the mobile view */
     .nav-menu li {
         text-align: center;
     }
 
     .auth-buttons {
-        display: none;
+        display: none; /* Hide auth buttons in mobile view */
     }
 
     .menu-toggle {
         display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px; /* Set the width of the hamburger icon */
+        height: 24px; /* Set the height to create space between bars */
+        cursor: pointer;
+        order: -1;
+    }
+    
+    .menu-toggle .bar {
+        width: 100%;
+        height: 3px; /* Set the height for each bar */
+        background-color: var(--primary-color); /* Ensure this matches your theme */
+        transition: all 0.3s ease; /* Add a smooth transition for animation */
     }
 
     .dropdown-content {
@@ -259,9 +282,22 @@ footer {
 
 .footer-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 2rem;
+    flex-direction: row; /* Make all items sit in one row */
+    justify-content: space-between; /* Spread them out equally */
+    align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    gap: 2rem; /* Optional: add space between items */
+}
+
+.footer-container div {
+    flex: 1; /* Ensure each div takes up equal space */
+}
+
+/* Mobile Responsive Footer */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; /* Stack on mobile */
+        text-align: center;
+    }
 }
