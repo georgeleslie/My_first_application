@@ -30,17 +30,16 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0; /* Set padding to 0 on the sides */
-    max-width: 100%; /* Set width to 100% to allow full width of the screen */
-    margin: 0; /* Remove auto margin to prevent centering */
+    padding: 15px 0;
+    max-width: 100%;
+    margin: 0;
 }
 
 /* Logo Styling */
 .logo {
     max-width: 150px;
     height: auto;
-    margin-left: 300px; /* Ensure no margin is added */
-    padding-left: 0; /* Ensure no padding is added */
+    margin-left: 300px;
 }
 
 /* Navigation Menu */
@@ -53,7 +52,6 @@ header {
     margin-right: auto;
 }
 
-
 .nav-menu li {
     position: relative;
 }
@@ -64,7 +62,6 @@ header {
     font-weight: bold;
     padding: 10px 20px;
     transition: background-color 0.3s ease, color 0.3s ease;
-    white-space: nowrap;
 }
 
 .nav-menu li a:hover {
@@ -74,10 +71,6 @@ header {
 }
 
 /* Dropdown Menu */
-.dropdown {
-    position: relative;
-}
-
 .dropdown-content {
     display: none;
     position: absolute;
@@ -88,12 +81,11 @@ header {
     min-width: 200px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
     z-index: 1;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
     opacity: 0;
     visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-/* Show dropdown on hover */
 .dropdown:hover .dropdown-content {
     display: block;
     opacity: 1;
@@ -104,7 +96,6 @@ header {
     padding: 10px 20px;
     color: var(--primary-color);
     display: block;
-    transition: background-color 0.3s ease;
 }
 
 .dropdown-content li a:hover {
@@ -146,27 +137,18 @@ header {
     display: none;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    width: 40px; /* Increased width for spacing */
-    height: 40px; /* Height to create space between bars */
+    width: 30px;
+    height: 30px;
     cursor: pointer;
-    transition: transform 0.3s ease;
-    border: 2px solid var(--primary-color); /* Add a border */
-    border-radius: 8px; /* Rounded corners for a modern look */
-    padding: 5px; /* Padding inside the button */
-    background-color: var(--white-color); /* Background color */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .menu-toggle .bar {
     width: 100%;
-    height: 3px; /* Thickness of each bar */
-    background-color: var(--primary-color); /* Bar color */
-    transition: all 0.3s ease;
-    border-radius: 5px; /* Rounded bars */
+    height: 3px;
+    background-color: var(--primary-color);
 }
 
-/* Hamburger Animation - Cross */
+/* Hamburger Animation */
 .menu-toggle.open .bar:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
 }
@@ -179,21 +161,47 @@ header {
     transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Hamburger Hover Effect */
-.menu-toggle:hover {
-    background-color: var(--primary-color); /* Change background color on hover */
-    border-color: var(--secondary-color); /* Change border color on hover */
-}
-
-.menu-toggle:hover .bar {
-    background-color: var(--white-color); /* Change bar color on hover */
-}
-
 /* Mobile Specific Styles */
 @media (max-width: 768px) {
-    /* Show the hamburger menu on mobile */
+    .header-container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .logo {
+        max-width: 100px;
+        margin-left: 0;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu li {
+        text-align: center;
+    }
+
+    .auth-buttons {
+        display: none;
+    }
+
     .menu-toggle {
         display: flex;
+    }
+
+    .dropdown-content {
+        position: static;
+        display: none;
+    }
+
+    .dropdown.active .dropdown-content {
+        display: block;
     }
 }
 
@@ -208,7 +216,6 @@ header {
     align-items: center;
     text-align: center;
     color: var(--white-color);
-    position: relative;
 }
 
 .hero-content {
@@ -219,26 +226,18 @@ header {
 
 .hero h2 {
     font-size: 3rem;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero p {
     font-size: 1.2rem;
-    margin: 10px 0;
 }
 
 .hero .cta-btn {
     background-color: #e81919;
     color: var(--white-color);
     padding: 0.8rem 2rem;
-    text-decoration: none;
     font-weight: bold;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.hero .cta-btn:hover {
-    background-color: #ff4d4d;
 }
 
 /* Main Content Styling */
@@ -248,27 +247,6 @@ main {
     padding: 1rem;
     background-color: var(--white-color);
     border-radius: 5px;
-    box-shadow: var(--box-shadow);
-}
-
-section {
-    margin-bottom: 2rem;
-}
-
-section h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-}
-
-section p {
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-section ul {
-    list-style-type: disc;
-    margin-left: 20px;
 }
 
 /* Footer Styling */
@@ -277,7 +255,6 @@ footer {
     color: var(--white-color);
     text-align: center;
     padding: 2rem 1rem;
-    width: 100%;
 }
 
 .footer-container {
@@ -287,177 +264,4 @@ footer {
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
-}
-
-.footer-container div {
-    flex: 1 1 200px;
-}
-
-.footer-container h4 {
-    margin-bottom: 1rem;
-    color: var(--white-color);
-}
-
-.footer-container ul {
-    list-style: none;
-}
-
-.footer-container ul li a {
-    color: var(--white-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-container ul li a:hover {
-    color: var(--primary-color);
-}
-
-.newsletter form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.newsletter input[type="email"] {
-    padding: 0.5rem;
-    border: none;
-    border-radius: 5px;
-}
-
-.newsletter button {
-    padding: 0.5rem;
-    border: none;
-    border-radius: 5px;
-    background-color: var(--primary-color);
-    color: var(--white-color);
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.newsletter button:hover {
-    background-color: var(--secondary-color);
-}
-
-.footer-bottom {
-    margin-top: 2rem;
-    border-top: 1px solid #555;
-    padding-top: 1rem;
-}
-
-.footer-bottom p {
-    font-size: 0.9rem;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .header-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    /* Show the hamburger menu on mobile */
-    .menu-toggle {
-        display: flex;
-        margin-top: 10px;
-    }
-
-    /* Hide the nav-menu by default on mobile */
-    .nav-menu {
-        display: none;
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-        margin-top: 10px;
-    }
-
-    /* When the menu is active, show it */
-    .nav-menu.active {
-        display: flex;
-    }
-
-    /* Make nav items full width in mobile view */
-    .nav-menu li a {
-        padding: 10px;
-        width: 100%;
-        text-align: center;
-    }
-
-    .dropdown-content {
-        position: static;
-        box-shadow: none;
-        border-radius: 0;
-    }
-
-    .dropdown.active .dropdown-content {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .dropdown > a::after {
-        content: ' ▼';
-        font-size: 0.8rem;
-    }
-
-    /* Responsive hero section */
-    .hero h2 {
-        font-size: 2rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-
-    .auth-buttons {
-        margin-top: 10px;
-    }
-}
-
-
-/* Adjust Header for Mobile */
-@media (max-width: 768px) {
-    /* Align items horizontally */
-    .header-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 15px;
-    }
-
-    /* Make the logo smaller for mobile */
-    .logo {
-        max-width: 80px;
-        margin-left: 0;
-    }
-
-    /* Show the hamburger menu on mobile with the "MENU" text */
-    .menu-toggle {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 16px;
-    }
-
-    .menu-toggle span {
-        display: block;
-    }
-
-    /* Hide the navigation menu initially in mobile */
-    .nav-menu {
-        display: none;
-    }
-
-    /* When the menu is active, show it */
-    .nav-menu.active {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-        text-align: center;
-        margin-top: 10px;
-    }
-
-    /* Hide the login/signup buttons in mobile view */
-    .auth-buttons {
-        display: none;
-    }
 }

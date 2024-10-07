@@ -1,7 +1,4 @@
-const menuToggle = document.querySelector('.menu-toggle');
-const navMenu = document.querySelector('.nav-menu');
-
-menuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    menuToggle.classList.toggle('open'); // This is for the hamburger animation
+document.querySelector('.menu-toggle').addEventListener('click', function() {
+    this.classList.toggle('open');
+    document.querySelector('.nav-menu').classList.toggle('active');
 });
