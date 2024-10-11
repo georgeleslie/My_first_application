@@ -1,230 +1,212 @@
-:root {
-    --primary-color: #007BFF;
-    --secondary-color: #0056b3;
-    --white-color: #fff;
-    --gray-color: #333;
-    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Basic Reset */
+/* Global reset and common styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+:root {
+    --bg-color: #2C2F33;
+    --main-color: #e31010;
+    --hover-color: #99AAB5;
+    --text-color: #FFFFFF;
+    --dropdown-bg: #23272A;
+    --transition-time: 0.3s;
+    --white-color: #FFFFFF;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: var(--gray-color);
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
-/* Header Styling */
+/* Header and Navbar Styles */
 header {
-    background-color: var(--white-color);
-    box-shadow: var(--box-shadow);
-}
-
-/* Header Container Adjustments */
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
-    max-width: 100%;
-    margin: 0;
-}
-
-/* Logo Styling */
-.logo {
-    max-width: 150px;
-    height: auto;
-    margin-left: 300px;
-}
-
-/* Navigation Menu */
-.nav-menu {
-    list-style: none; /* Remove bullet points from main menu */
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
+    position: fixed;
     width: 100%;
-    margin-right: auto;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+    padding: 28px 12%;
+    transition: all 0.5s ease;
 }
 
-.nav-menu li {
-    position: relative;
+.logo {
+    display: flex;
+    align-items: center;
 }
 
-.nav-menu li a {
-    text-decoration: none;
-    color: var(--primary-color);
-    font-weight: bold;
-    padding: 10px 20px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+.logo i {
+    color: var(--main-color);
+    font-size: 28px;
+    margin-right: 5px;
 }
 
-.nav-menu li a:hover {
-    background-color: var(--primary-color);
-    color: var(--white-color);
-    border-radius: 5px;
+.logo span {
+    color: var(--text-color);
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin-top: 6.5px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.navbar a {
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 5px 0;
+    margin: 0 30px;
+    transition: all 0.5s ease;
+}
+
+.navbar a:hover {
+    color: var(--main-color);
+}
+
+.navbar a.active {
+    color: var(--main-color);
+}
+
+/* Sign-in and Register */
+.main {
+    display: flex;
+    align-items: center;
+}
+
+.main a {
+    margin-right: 25px;
+    margin-left: 10px;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.5s ease;
+}
+
+.main a:hover {
+    color: var(--main-color);
+}
+
+.user i {
+    color: var(--main-color);
+    font-size: 28px;
+    margin-right: 7px;
+}
+
+/* Hamburger icon for smaller screens */
+#menu-icon {
+    font-size: 50px;
+    color: var(--text-color);
+    cursor: pointer;
+    display: none;
+}
+
+@media (max-width: 1280px) {
+    header {
+        padding: 14px 2%;
+        transition: all 0.2s ease;
+    }
+
+    .navbar a {
+        margin: 0 20px;
+    }
+}
+
+@media (max-width: 1090px) {
+    #menu-icon {
+        display: block;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        width: 270px;
+        background: var(--main-color);
+        flex-direction: column;
+        justify-content: flex-start;
+        border-radius: 10px;
+        transition: right 0.5s ease;
+    }
+
+    .navbar.open {
+        right: 2%;
+    }
+
+    .navbar a {
+        display: block;
+        margin: 12px 0;
+        padding: 15px;
+        text-align: center;
+        transition: all 0.5s ease;
+    }
+
+    .navbar a:hover {
+        color: var(--text-color);
+        transform: translateY(5px);
+    }
 }
 
 /* Dropdown Menu */
+.dropdown {
+    position: relative;
+}
+
 .dropdown-content {
     display: none;
     position: absolute;
+    background-color: var(--dropdown-bg);
+    min-width: 220px;
+    border-radius: 8px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 1;
     top: 100%;
     left: 0;
-    background-color: var(--white-color);
-    border-radius: 8px;
-    min-width: 200px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
-    z-index: 1;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    list-style: none; /* Remove bullet points from dropdowns */
     padding: 10px 0;
-}
-
-/* Dropdown Hover */
-.dropdown:hover .dropdown-content {
-    display: block;
-    opacity: 1;
-    visibility: visible;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity var(--transition-time), transform var(--transition-time);
 }
 
 .dropdown-content li a {
-    padding: 10px 20px;
-    color: var(--primary-color);
+    color: var(--text-color);
+    padding: 15px 20px;
     display: block;
-    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    transition: background-color var(--transition-time), color var(--transition-time);
 }
 
 .dropdown-content li a:hover {
-    background-color: var(--primary-color);
-    color: var(--white-color);
-    border-radius: 5px;
+    background-color: var(--main-color);
+    color: var(--bg-color);
 }
 
-/* Auth Buttons */
-.auth-buttons {
-    display: flex;
-    gap: 25px;
-    margin-right: 300px;
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.login-btn, .signup-btn {
-    padding: 8px 16px;
-    font-size: 1rem;
-    border: 2px solid var(--primary-color);
-    background-color: transparent;
-    color: var(--primary-color);
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.signup-btn {
-    background-color: var(--primary-color);
-    color: var(--white-color);
-}
-
-.login-btn:hover, .signup-btn:hover {
-    background-color: var(--secondary-color);
-    color: var(--white-color);
-}
-
-/* Mobile Menu Toggle (Hamburger) */
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-}
-
-.menu-toggle .bar {
-    width: 100%;
-    height: 3px;
-    background-color: var(--primary-color);
-}
-
-/* Hamburger Animation */
-.menu-toggle.open .bar:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.menu-toggle.open .bar:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-toggle.open .bar:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* Mobile Specific Styles */
-@media (max-width: 2000px) {
-    /* Keep logo and hamburger menu side by side */
-    .header-container {
-        flex-direction: row; /* This ensures side-by-side layout */
-        justify-content: space-between; /* Space between logo and menu */
-        align-items: center; /* Vertically center both elements */
-        padding: 10px;
-    }
-
-    .logo {
-        max-width: 100px;
-        margin-left: 0;
-        order: 1;
-    }
-
-    /* Hide the normal navigation in mobile view */
-    .nav-menu {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .nav-menu.active {
-        display: flex;
-    }
-
-    /* Center menu items in the mobile view */
-    .nav-menu li {
-        text-align: center;
-    }
-
-    .auth-buttons {
-        display: none; /* Hide auth buttons in mobile view */
-    }
-
-    .menu-toggle {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 30px; /* Set the width of the hamburger icon */
-        height: 24px; /* Set the height to create space between bars */
-        cursor: pointer;
-        order: -1;
-    }
-    
-    .menu-toggle .bar {
-        width: 100%;
-        height: 3px; /* Set the height for each bar */
-        background-color: var(--primary-color); /* Ensure this matches your theme */
-        transition: all 0.3s ease; /* Add a smooth transition for animation */
-    }
-
+@media (max-width: 1090px) {
     .dropdown-content {
         position: static;
-        display: none;
+        width: 100%;
+        border-radius: 0;
     }
 
-    .dropdown.active .dropdown-content {
+    .dropdown.open .dropdown-content {
         display: block;
+        opacity: 1;
     }
 }
 
@@ -239,65 +221,137 @@ header {
     align-items: center;
     text-align: center;
     color: var(--white-color);
+    margin-top: 80px;
+    width: 100%;
 }
 
 .hero-content {
-    background: rgba(0, 0, 0, 0.5);
-    padding: 20px;
+    background: rgba(0, 0, 0, 0.5); /* Add transparency */
+    padding: 30px; /* Add padding for better spacing */
     border-radius: 10px;
+    max-width: 90%; /* Limit the width for better readability */
 }
 
-.hero h2 {
+.hero h1 {
     font-size: 3rem;
+    margin-bottom: 15px; /* Add margin between heading and text */
 }
 
 .hero p {
     font-size: 1.2rem;
+    margin-bottom: 20px; /* Add margin between text and button */
 }
 
-.hero .cta-btn {
+.cta-btn {
     background-color: #e81919;
     color: var(--white-color);
-    padding: 0.8rem 2rem;
+    padding: 10px 20px;
     font-weight: bold;
     border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px; /* Add margin to create space from the paragraph */
 }
 
-/* Main Content Styling */
-main {
+.cta-btn:hover {
+    background-color: #c71717;
+}
+
+/* Main Content Section */
+.content-section {
+    padding: 40px 20px;
     max-width: 1200px;
-    margin: 2rem auto;
-    padding: 1rem;
-    background-color: var(--white-color);
-    border-radius: 5px;
+    margin: 0 auto;
+    color: var(--text-color);
 }
 
-/* Footer Styling */
+
+
+
+/* Main section*/
+.about-section {
+    margin-bottom: 40px;
+}
+
+.about-section h2 {
+    font-size: 2rem;
+    color: var(--main-color);
+    margin-bottom: 15px;
+}
+
+.about-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+}
+
+/* Services Section */
+.services-section h2 {
+    font-size: 2rem;
+    color: var(--main-color);
+    margin-bottom: 20px;
+}
+
+.services-list {
+    columns: 2;
+    column-gap: 40px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.services-list li {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .services-list {
+        columns: 1;
+    }
+}
+
+/* Footer */
 footer {
-    background-color: var(--gray-color);
-    color: var(--white-color);
+    background-color: black;
+    color: var(--text-color);
+    padding: 2rem 0;
     text-align: center;
-    padding: 2rem 1rem;
 }
 
 .footer-container {
-    display: flex;
-    flex-direction: row; /* Make all items sit in one row */
-    justify-content: space-between; /* Spread them out equally */
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
-    gap: 2rem; /* Optional: add space between items */
+    padding: 0 20px;
 }
 
-.footer-container div {
-    flex: 1; /* Ensure each div takes up equal space */
+.footer-container h4 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
 }
 
-/* Mobile Responsive Footer */
+.footer-container p, .footer-container li, .footer-container a {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.footer-bottom {
+    margin-top: 2rem;
+    font-size: 0.8rem;
+}
+
 @media (max-width: 768px) {
     .footer-container {
-        flex-direction: column; /* Stack on mobile */
-        text-align: center;
+        grid-template-columns: 1fr; /* Stack footer columns vertically */
+        text-align: left;
     }
+}
+
+.signup-btn{
+    margin-top: 6.5px;
 }
