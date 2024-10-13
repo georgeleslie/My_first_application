@@ -377,3 +377,59 @@ footer {
     }
 }
 
+
+/* iPhone Notch Compatibility */
+@supports(padding: env(safe-area-inset-top)) {
+    header {
+        padding-top: env(safe-area-inset-top);
+        background-color: #e80c0c;
+    }
+
+    .navbar {
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+    }
+}
+
+/* Accessibility: Adding focus styles */
+.navbar a:hover, .navbar a:focus {
+    color: var(--main-color);
+    outline: none; /* Optionally, remove the default outline */
+    border-bottom: 2px solid var(--main-color); /* Adds a bottom border to indicate focus */
+}
+
+.main a:hover, .main a:focus {
+    color: var(--main-color);
+    outline: none;
+}
+
+/* Improve responsiveness for small screens */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem; /* Smaller font size for smaller screens */
+    }
+
+    .hero p {
+        font-size: 1rem; /* Reduce text size for smaller screens */
+    }
+
+    .cta-btn {
+        padding: 8px 16px; /* Adjust button padding for smaller screens */
+    }
+}
+
+/* Sticky Footer on Short Pages */
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin-top: auto; /* Makes the footer stick to the bottom if the content is short */
+}
+
+
