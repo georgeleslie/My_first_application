@@ -1,4 +1,4 @@
-/* Global reset and common styles */
+
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +7,7 @@
     text-decoration: none;
     list-style: none;
 }
+
 
 :root {
     --bg-color: #2C2F33;
@@ -18,13 +19,20 @@
     --white-color: #FFFFFF;
 }
 
+
 body {
     min-height: 100vh;
     background-color: var(--bg-color);
     color: var(--text-color);
+    display: flex;
+    flex-direction: column;
 }
 
-/* Header and Navbar Styles */
+/* 
+  Header and Navbar Styles:
+  Styling the header, making it fixed to the top with a black background.
+  Applying padding and ensuring it transitions smoothly.
+*/
 header {
     position: fixed;
     width: 100%;
@@ -38,12 +46,16 @@ header {
     transition: all 0.5s ease;
 }
 
+/* 
+  Logo Styles:
+  Aligning the logo with text and icon inside the header.
+*/
 .logo {
     display: flex;
     align-items: center;
 }
-/*home and logo*/
-a.logo{
+
+a.logo {
     margin-right: 10px;
     margin-top: 10px;
 }
@@ -52,17 +64,19 @@ a.logo{
     color: var(--main-color);
     font-size: 30px;
     margin-right: 5px;
-    
 }
-/*network phuket text*/
+
 .logo span {
     color: var(--text-color);
     font-size: 0.7rem;
     font-weight: 600;
     margin-top: 15px;
-  
 }
 
+/* 
+  Navbar Styles:
+  Styling links inside the navbar, including transitions and hover effects.
+*/
 .navbar {
     display: flex;
     align-items: center;
@@ -77,21 +91,19 @@ a.logo{
     transition: all 0.5s ease;
 }
 
-.navbar a:hover {
+.navbar a:hover, .navbar a:focus {
     color: var(--main-color);
+    outline: none; /* Improves accessibility for keyboard users */
 }
 
 .navbar a.active {
     color: var(--main-color);
 }
 
-
-
-
-
-/* Sign-in and Register */
-
-
+/* 
+  Sign-in and Register Section:
+  Styling for user account links (sign-in, register).
+*/
 .main {
     display: flex;
     align-items: center;
@@ -106,36 +118,43 @@ a.logo{
     transition: all 0.5s ease;
 }
 
-.main a:hover {
+.main a:hover, .main a:focus {
     color: var(--main-color);
 }
 
-a.user{
+a.user {
     margin-top: 15px;
+    margin-left: 20px;
+  
 }
+
 .user i {
     color: var(--main-color);
     font-size: 25px;
     margin-left: 5px;
 }
 
-.signup-btn{
+.signup-btn {
     margin-top: 24px;
+
 }
 
-
-
-
-
-/* Hamburger icon for smaller screens */
+/* 
+  Hamburger Icon for Smaller Screens:
+  Displaying the hamburger menu on screens narrower than 1090px.
+*/
 #menu-icon {
     font-size: 40px;
     color: var(--text-color);
     cursor: pointer;
     display: none;
-    background-color: rgb(226, 4, 4);
+    background-color: #2C2F33;
 }
 
+/* 
+  Media Queries for Tablet Screens (1280px max width):
+  Adjusting header padding and navbar link margins for medium-sized screens.
+*/
 @media (max-width: 1280px) {
     header {
         padding: 14px 2%;
@@ -147,6 +166,11 @@ a.user{
     }
 }
 
+/* 
+  Media Queries for Mobile Screens (1090px max width):
+  Showing the hamburger menu and making the navbar responsive.
+  Transitions the navbar from off-screen to on-screen when toggled.
+*/
 @media (max-width: 1090px) {
     #menu-icon {
         display: block;
@@ -176,13 +200,17 @@ a.user{
         transition: all 0.5s ease;
     }
 
-    .navbar a:hover {
+    .navbar a:hover, .navbar a:focus {
         color: var(--text-color);
         transform: translateY(5px);
     }
 }
 
-/* Dropdown Menu */
+/* 
+  Dropdown Menu Styles:
+  Styling dropdown content, hidden by default and shown on hover.
+  Adding a smooth transition for dropdown appearance.
+*/
 .dropdown {
     position: relative;
 }
@@ -209,33 +237,45 @@ a.user{
     display: block;
     font-size: 1rem;
     transition: background-color var(--transition-time), color var(--transition-time);
+    
 }
 
 .dropdown-content li a:hover {
     background-color: var(--main-color);
     color: var(--bg-color);
+    transform: translateY(5px);
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
     opacity: 1;
-    transform: translateY(0);
-}
+    transform: translateY(5px);
+    }
 
-@media (max-width: 1090px) {
-    .dropdown-content {
+    @media (max-width: 1090px) {
+        .dropdown-content {
         position: static;
         width: 100%;
         border-radius: 0;
-    }
+        }
 
-    .dropdown.open .dropdown-content {
+        .dropdown.open .dropdown-content {
         display: block;
         opacity: 1;
+        }
     }
-}
 
-/* Hero Section */
+    ul.navbar.open{
+        background-color: #2C2F33;
+    }
+
+
+
+/* 
+  Hero Section Styles:
+  Styling the hero section with a background image, centering content,
+  and adding responsiveness for mobile devices.
+*/
 .hero {
     background-image: url('Images/hero_resized.webp');
     background-size: cover;
@@ -281,7 +321,10 @@ a.user{
     background-color: #c71717;
 }
 
-/* Main Content Section */
+/* 
+  Content Section Styles:
+  General content section padding and width limitations for readability.
+*/
 .content-section {
     padding: 40px 20px;
     max-width: 1200px;
@@ -289,10 +332,10 @@ a.user{
     color: var(--text-color);
 }
 
-
-
-
-/* Main section*/
+/* 
+  About Section:
+  Styling for the about section, including heading and paragraph text.
+*/
 .about-section {
     margin-bottom: 40px;
 }
@@ -309,7 +352,11 @@ a.user{
     color: var(--text-color);
 }
 
-/* Services Section */
+/* 
+  Services Section:
+  Styling the services list and ensuring proper spacing and font sizes.
+  Columns are reduced for smaller screens for better readability.
+*/
 .services-section h2 {
     font-size: 2rem;
     color: var(--main-color);
@@ -331,19 +378,23 @@ a.user{
     color: var(--text-color);
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .services-list {
         columns: 1;
     }
 }
 
-/* Footer */
+/* 
+  Footer Section:
+  Styling the footer, using a grid layout for multiple columns, and ensuring
+  responsiveness by stacking columns vertically on smaller screens.
+*/
 footer {
     background-color: black;
     color: var(--text-color);
     padding: 2rem 0;
     text-align: center;
+    margin-top: auto;
 }
 
 .footer-container {
